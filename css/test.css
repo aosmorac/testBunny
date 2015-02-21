@@ -1,0 +1,112 @@
+@charset "utf-8";
+/* 
+ * Squadrapp App
+ * Inicialmente para el desarrollo en phonegap
+ *
+ * 
+ * Lista de estilos:
+ * 
+ * JQuery Mobile	(Cambios en los estilos de jquery mobile)
+ * fonta face		()
+ * Globales			(Estilos para elementos presentes en toda la aplicacion)
+ * Menu				(Menu principal, laterla izquierdo)
+ * Chat				(Secci�n de chat)
+ * 	Chat List		(Lista de las conversaciones que se han tenido por usuario)
+ * 	Chat With		(Conversacion, lista de mensajes y envio de nuevos mensajes)
+ * 
+ * Botones			(Estilos para cada boton)
+ * 
+ * Libraries		(Estilos necesarios para librerias externas)
+ * 	Swipe .swipe-wrape
+ * 
+ */
+
+html, body {
+	margin: 0; padding: 0; border: 0; outline: 0; text-decoration:none; height:100%; 
+        font-family: tahoma;
+}
+div, span, applet, object, iframe, 
+h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, 
+abbr, acronym, address, big, cite, code, del, 
+dfn, em, font, img, ins, kbd, q, s, samp, small, 
+strike, strong, sub, sup, tt, var, b, u, i, 
+center, dl, dt, dd, ol, ul, li, fieldset, form, 
+label, legend, table, caption, tbody, tfoot, 
+thead, tr, th, td { 
+	margin: 0; padding: 0; border: 0; outline: 0; text-decoration:none; position:relative; 
+}
+
+.corte { clear:both; }
+.vacio { width: 100%;}
+
+
+#searchUser{
+    text-align: center;
+    margin: 20px;
+}
+#searchUser span{
+    color: #666666;
+    font-size: 40px;
+}
+#searchUser .field{
+    border: 1px solid #666;
+    padding: 5px 15px;
+    font-size: 28px;
+}
+#searchUser .search{
+    border: 1px solid #666;
+    padding: 5px 15px;
+    font-size: 28px;
+    background-color: #ffffcc;
+    width: 200px;
+    margin: 5px;
+    cursor: pointer;
+}
+
+#listUsers{
+    text-align: center;
+}
+#listUsers li{
+    display: inline-block;
+}
+#listUsers li a{
+    cursor: pointer;
+    font-size: 26px;
+    color: #666666;
+    margin: 5px 20px;
+}
+
+
+#listTwitters{
+    text-align: center;
+    margin: 20px 10px;
+}
+
+#listTwitters .item{
+    display: inline-block;
+    height: 50px;
+    width: 250px;
+    border: 1px solid #333;
+    background-color: #ccffcc;
+    padding: 5px;
+    margin: 5px;
+    cursor: pointer;
+}
+
+#listTwitters .item .instdate{
+    font-size: 9px;
+    color: #cccccc;
+    margin-bottom: 3px;
+}
+#listTwitters .item .twitt{
+    font-size: 11px;
+    color: #888;
+}
+
+#voiceSpeach {
+    text-align: center;
+}
+
+#voiceSpeach iframe{
+    margin: 20px auto;
+}

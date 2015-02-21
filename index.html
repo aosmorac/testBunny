@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<!--
+    Licensed to the Apache Software Foundation (ASF) under one
+    or more contributor license agreements.  See the NOTICE file
+    distributed with this work for additional information
+    regarding copyright ownership.  The ASF licenses this file
+    to you under the Apache License, Version 2.0 (the
+    "License"); you may not use this file except in compliance
+    with the License.  You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing,
+    software distributed under the License is distributed on an
+    "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+     KIND, either express or implied.  See the License for the
+    specific language governing permissions and limitations
+    under the License.
+-->
+<html>
+    <head>
+        <!-- WARNING: for iOS 7, remove the width=device-width and height=device-height attributes. See https://issues.apache.org/jira/browse/CB-4323 -->
+       <link rel="stylesheet" type="text/css" href="css/test.css" />
+       <title>Test Bunny</title>
+        
+        <script>
+        
+        </script>
+        
+    </head>
+    <body>
+        
+        <div id="searchUser">
+                <span>@</span> <input class="field" type="text" id="searchUserName" name="userName">
+                <div><input class="search" id="searchUsers" type="button" value="Buscar"></div>
+        </div>
+    	
+        <div id="listUsers">
+            
+        </div>
+        
+        <div id="listTwitters">
+            
+        </div>
+        
+        <div id="voiceSpeach">
+            
+        </div>
+        
+        
+        <script type="text/javascript" src="lib/jquery/jquery-2.1.0.min.js"></script>
+        <script type="text/javascript" src="js/testBunny.js"></script>
+        
+        <script>
+            
+            var twitters = Object();
+            
+            $(function(){
+                twitter.load();
+                twitter.setUserMode();
+                $('#searchUsers').click(function(){
+                    $('#listUsers').html('');
+                    $('#listTwitters').html('');
+                    twitter.loadTags($('#searchUserName').val(), function(){
+                        var tags = twitter.getTags();
+                        twitter.loadUsers($.trim(tags[0]), function(){
+	                            var users = twitter.getUsers();
+	                            if ( typeof(users) != 'undefined' && users.length > 0 ){
+	                                $.each( users, function( k, u ) {
+	                                     $('#listUsers').append('<li><a onclick="LoadTwitters(\''+u.screen_name+'\');" tag="'+u.screen_name+'" network_id="'+u.screen_name+'" is_user="1"><img width="40" height="40" src="'+u.profile_image_url+'">@'+u.screen_name+'</a></li>');
+	                                });
+	                            }
+	                        });
+                    });
+                });
+                
+                
+                
+                
+                
+            });
+            
+            function LoadTwitters (idUser){
+                twitter.setUserMode();
+                $('#listTwitters').html('');
+                    twitter.resetPages();
+                    twitter.loadNextPage(idUser, function(){
+                            if (twitter.isThereElements()){
+	                            var media = twitter.getPage();
+	                            var elementHtml = '';
+	                            $.each( media, function( k, m ) {
+                                        twitters[m.id] = m;
+                                        
+	                                    elementHtml = elementHtml+'<div class="item" onclick="getVoice(\''+m.id+'\')"><div class="instdate">'+formatTwitterDate(m.created_at)+'</div><div class="twitt">'+m.text+'</div></div>';
+	                               
+	                            });
+	                            $('#listTwitters').append(elementHtml);  
+	                        }
+                    });                 
+            }
+            
+            
+            function getVoice(mid){
+                var t = {
+                    title: twitters[mid].user.name,
+                    script: twitters[mid].text
+                };
+                voiceBunny.getVoice(t, function(){
+                    $('#voiceSpeach').html('<iframe src="'+voiceBunny.getUrlVoice()+'" width="200" height="30"></iframe>');
+                });
+            }
+        </script>
+    </body>
+</html>
