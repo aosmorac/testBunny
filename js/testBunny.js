@@ -1,21 +1,4 @@
-/*
- * Licensed to the Apache Software Foundation (ASF) under one
- * or more contributor license agreements.  See the NOTICE file
- * distributed with this work for additional information
- * regarding copyright ownership.  The ASF licenses this file
- * to you under the Apache License, Version 2.0 (the
- * "License"); you may not use this file except in compliance
- * with the License.  You may obtain a copy of the License at
- *
- * http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing,
- * software distributed under the License is distributed on an
- * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
- * KIND, either express or implied.  See the License for the
- * specific language governing permissions and limitations
- * under the License.
- */
+
 
 //var base_url = "http://desar.whooptag.com/";
 var base_url = "http://whooptag.com/";
@@ -80,7 +63,7 @@ var voiceBunny = {
 twitter = {
 	/*
 	* twitter.load();
-	* Carga la información inicial
+	* Carga la informaciÃ³n inicial
 	*/
 	load: function(callback){
 		callback = callback || function(){};
@@ -448,16 +431,16 @@ normalize = function(str){
   
   var r=str.toLowerCase();
   r = r.replace(new RegExp("\\s", 'g'),"");
-  r = r.replace(new RegExp("[àáâãäå]", 'g'),"a");
-  r = r.replace(new RegExp("æ", 'g'),"ae");
-  r = r.replace(new RegExp("ç", 'g'),"c");
-  r = r.replace(new RegExp("[èéêë]", 'g'),"e");
-  r = r.replace(new RegExp("[ìíîï]", 'g'),"i");
-  r = r.replace(new RegExp("ñ", 'g'),"n");                            
-  r = r.replace(new RegExp("[òóôõö]", 'g'),"o");
-  r = r.replace(new RegExp("œ", 'g'),"oe");
-  r = r.replace(new RegExp("[ùúûü]", 'g'),"u");
-  r = r.replace(new RegExp("[ýÿ]", 'g'),"y");
+  r = r.replace(new RegExp("[Ã Ã¡Ã¢Ã£Ã¤Ã¥]", 'g'),"a");
+  r = r.replace(new RegExp("Ã¦", 'g'),"ae");
+  r = r.replace(new RegExp("Ã§", 'g'),"c");
+  r = r.replace(new RegExp("[Ã¨Ã©ÃªÃ«]", 'g'),"e");
+  r = r.replace(new RegExp("[Ã¬Ã­Ã®Ã¯]", 'g'),"i");
+  r = r.replace(new RegExp("Ã±", 'g'),"n");                            
+  r = r.replace(new RegExp("[Ã²Ã³Ã´ÃµÃ¶]", 'g'),"o");
+  r = r.replace(new RegExp("Âœ", 'g'),"oe");
+  r = r.replace(new RegExp("[Ã¹ÃºÃ»Ã¼]", 'g'),"u");
+  r = r.replace(new RegExp("[Ã½Ã¿]", 'g'),"y");
   r = r.replace(new RegExp("\\W", 'g')," ");
   
   return r;
